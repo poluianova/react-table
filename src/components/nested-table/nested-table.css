@@ -1,0 +1,17 @@
+#root .nested-table {
+    table-layout: inherit;
+    margin-bottom: 0;
+    border: none;
+}
+
+#root .nested-table tr {
+    background-color: transparent;
+}
+
+#root .nested-table tr td{
+    color:#434F5C;
+    font-weight: normal;
+    display: inline-block;
+    border: none;
+    border-bottom: 1px solid #dee2e6;
+}

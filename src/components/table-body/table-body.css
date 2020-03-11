@@ -1,0 +1,23 @@
+.more-details-button {
+	display: none;
+}
+.more-details-button.btn-block {
+	width: 100px;
+}
+.table-body td:nth-last-child(1) {
+	color: tomato;
+}
+.table-body td:nth-last-child(1), .table-body td:nth-last-child(2) {
+	font-weight: bold;
+}
+.table-body tr:nth-child(4n+1) {
+	background-color: #F5FAFE;
+}
+.display-none {
+	display: none;
+}
+.table-body td.nested-cell {
+	margin: 0;
+	padding: 0;
+	border: none;
+}

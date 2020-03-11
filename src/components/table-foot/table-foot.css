@@ -1,0 +1,6 @@
+.table-foot tr {
+	background-color: #FFF0E9;
+}
+.table-foot td:nth-last-child(1), .table-foot td:nth-last-child(2) {
+	font-weight: bold;
+}

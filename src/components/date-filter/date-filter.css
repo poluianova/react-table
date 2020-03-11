@@ -1,0 +1,11 @@
+.date-filter {
+	max-width: 200px;
+	margin: 10px;
+}
+.date-filter button {
+	margin-top: 5px;
+	background-color: transparent;
+}
+.date-filter button:hover {
+	background-color: #F5FAFE;
+}

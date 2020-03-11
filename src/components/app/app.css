@@ -1,0 +1,27 @@
+table tr td {
+	color: #434F5C;
+		border: 1px solid #dee2e6;
+}
+@media (max-width: 575px) {
+ 	tr td:nth-last-child(8), tr td:nth-last-child(9) {
+		display: none;
+	}
+}
+@media (max-width: 767px) {
+	tr td:nth-last-child(6), tr td:nth-last-child(7) {
+		display: none;
+	}
+}
+@media (max-width: 991px) {
+	tr td:nth-last-child(4),  tr td:nth-last-child(5){
+		display: none;
+	}
+ }
+@media (max-width: 1199px) {
+	tr td:nth-last-child(2), tr td:nth-last-child(3) {
+		display: none;
+	}
+	.more-details-button {
+		display: block;
+	}
+}

@@ -1,0 +1,38 @@
+.button-sort {
+  /* position: relative; */
+  padding: 0;
+  margin-right: 15px;
+  border: none;
+  background-color: transparent;
+}
+.button-sort:active, .button-sort:focus {
+  outline: none;
+}
+i {
+font-family: fontawesome !important;
+line-height: 1;
+font-style: normal;
+}
+.button-sort i {
+  color: rgba(0, 0, 0, 0.5);
+ /*  left: 0;
+  position: absolute; */
+}
+/* #button-up i {
+  padding-top: 15px;
+}
+#button-down i {
+ margin-bottom: 7px;
+} */
+.button-sort:hover i {
+  color: rgba(0, 0, 0, 0.8);
+}
+.button-sort:active i {
+  color: tomato;
+}
+i.active-sort {
+  color: tomato;
+}
+i.not-active-sort {
+  color: transparent;
+}
