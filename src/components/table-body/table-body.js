@@ -37,12 +37,10 @@ onShowMore = (e) => {
 render() {
 
 	const { hiddenData, id } = this.state;
-
-	const displayNone = {
-		'display': 'none'};
 	const { tData } = this.props;
 	const lines = tData.map((el, i) => {
 		const sameId = id == i;
+		const nestedTable = sameId ? <NestedTable hiddenData={hiddenData} key={`nestedData${i}`}/> : null;
 		const { date, hits, unique, registrations, demo_registrations,
 			conversion, deposit, ftd, deals, profit } = el;
 			return (
@@ -65,7 +63,7 @@ render() {
 		</tr>
 		<tr key={`nestedRow${i}`}>
 		<td key={`nestedCell${i}`} style={{width: '100%'}} className='nested-cell'>
-		{ sameId ? <NestedTable hiddenData={hiddenData} key={`nestedData${i}`}/> : null}
+		{ nestedTable }
 		</td>
 		</tr>
 		</React.Fragment>

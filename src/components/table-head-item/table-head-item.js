@@ -15,8 +15,8 @@ const TableHeaditem = ({sortUp, sortDown}) => {
     	{name: 'deals', label: 'Deals'},
     	{name: 'profit', label: 'Profit'}
 		]
-	
-    const titles = headers.map(({name, label}) => {
+
+	const titles = headers.map(({name, label}, index) => {
     	return (
 			<td key={name}>
 
@@ -24,12 +24,12 @@ const TableHeaditem = ({sortUp, sortDown}) => {
 
 					<div className='sort-buttons d-flex flex-column'>
 
-						<button type="button" id="button-up"
+						<button type="button" id={`button-up-${index}`}
               			className="button-sort d-flex align-items-end" onClick={() => {sortUp(name)}} >
 		        			<i className="fas fa-angle-up"/>
 		      			</button>
 
-						<button type="button" id="button-down"
+						<button type="button" id={`button-down-${index}`}
               			className="button-sort d-flex align-items-start" onClick={() => {sortDown(name)}}>
 		        			<i className="fas fa-angle-down" />
 		      			</button>
