@@ -40,12 +40,11 @@ render() {
 	const { tData } = this.props;
 	const lines = tData.map((el, i) => {
 		const sameId = id == i;
-		const nestedTable = sameId ? <NestedTable hiddenData={hiddenData} key={`nestedData${i}`}/> : null;
 		const { date, hits, unique, registrations, demo_registrations,
 			conversion, deposit, ftd, deals, profit } = el;
-			return (
-				<React.Fragment key={i}>
-		<tr key={i} id={i} className='main-table-row'>	
+return (
+	<React.Fragment key={i}>
+		<tr id={i} className='main-table-row'>	
 			<td>
 			<span>{date}</span>
 			<button className='btn btn-warning btn-sm btn-block more-details-button' onClick={this.onShowMore}>More details</button>
@@ -61,12 +60,12 @@ render() {
 			<td><span className='display-none'>{Object.keys({deals})}</span>{deals}</td>
 			<td>{profit}</td>
 		</tr>
-		<tr key={`nestedRow${i}`}>
-		<td key={`nestedCell${i}`} style={{width: '100%'}} className='nested-cell'>
-		{ nestedTable }
-		</td>
+		<tr>
+			<td style={{width: '100%'}} className='nested-cell'>
+				{ sameId ? <NestedTable hiddenData={hiddenData} /> : null }
+			</td>
 		</tr>
-		</React.Fragment>
+	</React.Fragment>
 	)
 	})
 return (

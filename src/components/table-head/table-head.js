@@ -1,6 +1,5 @@
 import React from 'react';
 import TableHeaditem from '../table-head-item'
-import './table-head.css';
 
 const TableHead = ({ sortUp, sortDown}) => {
 
