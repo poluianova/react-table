@@ -4,7 +4,6 @@ import './table-foot.css';
 const TableFoot = ({ totalSum })  => {
 
 	const row = totalSum.map((el, i) => {
-
 		return (
 			<td key={`${i}Sum`}>{el}</td>
 		)
@@ -16,7 +15,7 @@ const TableFoot = ({ totalSum })  => {
 				{row}
 			</tr>
 		</tfoot>
-	);
-};
+	)
+}
 
 export default TableFoot;

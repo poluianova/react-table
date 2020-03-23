@@ -6,7 +6,6 @@ const NestedTable = ({hiddenData, display}) => {
     let displayClass = display ? ' display-block' : ' display-none';
 
     const data = hiddenData.map((el, i) => {
-
         return (
             <tr key={i}>
                 <td>{el[0]}</td>

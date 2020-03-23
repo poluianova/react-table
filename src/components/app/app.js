@@ -23,6 +23,7 @@ UNSAFE_componentWillMount() {
 		isLoading: true
 	})
 }
+
 componentDidMount() {
 	this.updateData();
 }
@@ -129,12 +130,15 @@ search(items, startDate, endDate) {
 }
 
 	render () {
+
 		if (this.state.error) {
 			return <p>There is a mistake</p>
 		}
+
 		if (this.state.isLoading) {
 			return <p>Data is loading...</p>
 		}
+		
 		const { tableData, startDate, endDate } = this.state;
 		const maxDate = this.findMaxEl(tableData);
 		const minDate = this.findMinEl(tableData);
@@ -144,17 +148,17 @@ search(items, startDate, endDate) {
 		return (
 			<div className='table-app'>
 
-			<DateFilter onFilterStart={this.onFilterStart}
-			 onFilterEnd={this.onFilterEnd} onShowAll={this.onShowAll}
-			 minDate={minDate} maxDate={maxDate} />
+				<DateFilter onFilterStart={this.onFilterStart}
+				onFilterEnd={this.onFilterEnd} onShowAll={this.onShowAll}
+				minDate={minDate} maxDate={maxDate} />
 
-			<table className='main-table table'>
-				<TableHead sortUp={this.onSortUp} sortDown={this.onSortDown} />
-				<TableFoot totalSum={totalSum} />
-				<TableBody tData={visibleItems} />
-			</table>
+				<table className='main-table table'>
+					<TableHead sortUp={this.onSortUp} sortDown={this.onSortDown} />
+					<TableFoot totalSum={totalSum} />
+					<TableBody tData={visibleItems} />
+				</table>
 			
 			</div>
-			)
+		)
 	};
 };

@@ -40,13 +40,15 @@ const TableHeaditem = ({sortUp, sortDown}) => {
                 </div>
 			</td>
 
-    	)})
+		)
+	})
 
     return (
 		<tr className='main-table-row'>
         	{ titles }
 		</tr>
 
-)}
+	)
+}
 
 export default TableHeaditem;
