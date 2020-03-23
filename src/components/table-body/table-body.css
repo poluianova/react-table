@@ -16,6 +16,9 @@
 .display-none {
 	display: none;
 }
+.table-body .main-table-row td:first-child{
+	width: 160px !important;
+}
 .table-body td.nested-cell {
 	margin: 0;
 	padding: 0;

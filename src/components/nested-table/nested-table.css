@@ -1,7 +1,14 @@
+.display-block {
+    display: table;
+}
+.display-none {
+    display: none;
+}
 #root .nested-table {
-    table-layout: inherit;
     margin-bottom: 0;
     border: none;
+    border-left: 1px solid #dee2e6;;
+    border-right: 1px solid #dee2e6;;
 }
 
 #root .nested-table tr {
@@ -11,7 +18,35 @@
 #root .nested-table tr td{
     color:#434F5C;
     font-weight: normal;
-    display: inline-block;
+    display: table-cell;
     border: none;
     border-bottom: 1px solid #dee2e6;
+}
+#root .nested-table tr td:first-child {
+    width: 160px;
+}
+@media (max-width: 1199px) {
+    .nested-table tr:nth-child(-n+6){
+        display: none;
+    }
+}
+@media (max-width: 991px) {
+    .nested-table tr:nth-child(5), .nested-table tr:nth-child(6){
+        display: table-row;
+    }
+}
+@media (max-width: 767px) {
+    .nested-table tr:nth-child(3), .nested-table tr:nth-child(4){
+        display: table-row;
+   }
+}
+@media (max-width: 575px) {
+    .nested-table tr:nth-child(1), .nested-table tr:nth-child(2) {
+        display: table-row;
+   }
+}
+@media (min-width: 1200px) {
+	.nested-table {
+		display: none;
+    }
 }

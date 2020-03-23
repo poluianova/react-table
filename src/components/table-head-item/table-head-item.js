@@ -42,7 +42,7 @@ const TableHeaditem = ({sortUp, sortDown}) => {
 
     	)})
 
-        return (
+    return (
 		<tr className='main-table-row'>
         	{ titles }
 		</tr>
@@ -50,16 +50,3 @@ const TableHeaditem = ({sortUp, sortDown}) => {
 )}
 
 export default TableHeaditem;
-
-
-
-
-/* <button type="button" id="button-up"
-              			className="button-sort d-flex align-items-end" onClick={() => {sortUp(name)}} >
-		        			<i className="fas fa-angle-up"/>
-		      			</button>
-
-						<button type="button" id="button-down"
-              			className="button-sort d-flex align-items-start" onClick={() => {sortDown(name)}}>
-		        			<i className="fas fa-angle-down" />
-		      			</button> */

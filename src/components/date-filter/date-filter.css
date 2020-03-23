@@ -1,8 +1,8 @@
 .date-filter {
-	max-width: 200px;
 	margin: 10px;
 }
 .date-filter button {
+	display: block;
 	margin-top: 5px;
 	background-color: transparent;
 }

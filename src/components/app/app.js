@@ -11,11 +11,40 @@ export default class App extends Component {
 	data = new Data();
 
 	state = {
-		tableData: this.data.tableData,
-		startDate: '',
-		endDate: ''
+		tableData: '',
+		isLoading: false,
+		error: false,
+		startDate: null,
+		endDate: null
+}
 
-};
+UNSAFE_componentWillMount() {
+	this.setState({
+		isLoading: true
+	})
+}
+componentDidMount() {
+	this.updateData();
+}
+
+updateData = () => {
+	this.data.getData()
+	.then(this.onDataLoaded)
+	.catch(this.onError)
+}
+
+onDataLoaded = (data) => {
+	this.setState({
+		tableData: data,
+		isLoading: false
+	})
+}
+
+onError = () => {
+	this.setState({
+		error: true
+	})
+}
 
 onSortUp = (key) => {
 	this.setState(({tableData}) => {
@@ -64,49 +93,67 @@ onSortDown = (key) => {
 }
 
 onFilterStart = (startDate) => {
-	this.setState({startDate});
+	const parseStartDate = Date.parse(startDate)
+	this.setState({startDate: parseStartDate});	
 }
+
 onFilterEnd = (endDate) => {
-	this.setState({endDate});
+	const parseEndDate = Date.parse(endDate);
+	this.setState({endDate: parseEndDate});
 }
-onShowAll = (startDate, endDate) => {
+
+onShowAll = () => {
 	this.setState({
-		startDate: '',
-		endDate: ''
+		startDate: null,
+		endDate: null
 	})
 }
 
+findMaxEl = (items) => {
+	return items.reduce((max, el) =>
+	el.date > max ? el.date : max, items[0].date); 
+}
+
+findMinEl = (items) => {
+	return items.reduce((min, el) =>
+	el.date < min ? el.date : min, items[0].date); 
+}
+
 search(items, startDate, endDate) {
-	// if (startDate.length === 0 && endDate.length === 0) {
-	// 	return items;
-	// };
-	if (startDate.length === 0) {
-		startDate = items.reduce((min, el) =>
-		 el.date < min ? el.date : min, items[0].date); 
-	}
-	if (endDate.length === 0) {
-		endDate = items.reduce((max, el) =>
-		el.date > max ? el.date : max, items[0].date); 
-	}
+	if (startDate === null && endDate === null) {
+		return items;
+	};
 	return items.filter((item) => {
-		return item.date >= startDate && item.date <= endDate;
+		return Date.parse(item.date) >= startDate && Date.parse(item.date) <= endDate;
 })
 }
 
 	render () {
+		if (this.state.error) {
+			return <p>There is a mistake</p>
+		}
+		if (this.state.isLoading) {
+			return <p>Data is loading...</p>
+		}
 		const { tableData, startDate, endDate } = this.state;
+		const maxDate = this.findMaxEl(tableData);
+		const minDate = this.findMinEl(tableData);
 		const visibleItems = this.search(tableData, startDate, endDate);
 		const totalSum = this.data.getTotalSumArray(visibleItems, tableData);
 
 		return (
 			<div className='table-app'>
+
 			<DateFilter onFilterStart={this.onFilterStart}
-			 onFilterEnd={this.onFilterEnd}/>
+			 onFilterEnd={this.onFilterEnd} onShowAll={this.onShowAll}
+			 minDate={minDate} maxDate={maxDate} />
+
 			<table className='main-table table'>
 				<TableHead sortUp={this.onSortUp} sortDown={this.onSortDown} />
 				<TableFoot totalSum={totalSum} />
 				<TableBody tData={visibleItems} />
 			</table>
+			
 			</div>
 			)
 	};

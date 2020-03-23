@@ -1,6 +1,9 @@
+table {
+	width: 100%;
+}
 table tr td {
 	color: #434F5C;
-		border: 1px solid #dee2e6;
+	border: 1px solid #dee2e6;
 }
 @media (max-width: 575px) {
  	tr td:nth-last-child(8), tr td:nth-last-child(9) {
